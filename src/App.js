@@ -49,7 +49,6 @@ function App() {
     () => {
       setTodoList([])
       alert.success("successfully clear!");
-
     },
     [],
   );

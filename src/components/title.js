@@ -20,7 +20,7 @@ const h3r ={
     color:'gray',
 }
 const tt={
-    width:'80%',
+    width:'100%',
     float:'left',
 }
 const Buttonstyle = styled(Button)`
@@ -28,6 +28,9 @@ const Buttonstyle = styled(Button)`
     margin:20px;
     color:red;
 `
+const dnone ={
+    display:'flex',
+}
 const count = (lst) =>{
     const total = lst.filter((todo)=> {return  todo.isCompleted === false } ) 
     return total.length
@@ -44,8 +47,12 @@ export default function title({Refesh,Reset,todoList}) {
                 </div>
                 :  <div style={tt}> <h3 style={h3r} >Danh sách đang trống!</h3></div>
             }
+            {
+                todoList.length !== 0 ? <div style={dnone}> 
             <Buttonstyle isDisabled={todoList.length===0} onClick={ Refesh} appearance="danger" > Xoá hết </Buttonstyle>
             <Buttonstyle isDisabled={todoList.length===0} onClick={ Reset} appearance="warning"> Làm mới </Buttonstyle>
+            </div> : ''
+            }
             </div>
         </> 
     )
